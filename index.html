@@ -1414,43 +1414,33 @@
 
       /* ---------- عن المطوّر (كارت + صفحة) ---------- */
       .devcard {
-        margin: 6px auto 96px;
+        margin: 0 auto 40px;
       }
       .dv-entry {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 14px;
-        width: 100%;
-        padding: 12px 14px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        transition: border-color 0.2s;
+        gap: 8px;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        transition: opacity 0.2s;
       }
       .dv-entry:hover {
-        border-color: var(--primary);
+        opacity: 0.85;
       }
       .dv-entry img {
-        width: 56px;
-        height: 56px;
+        width: 72px;
+        height: 72px;
         border-radius: 50%;
         object-fit: cover;
         border: 2px solid var(--primary);
-        flex-shrink: 0;
       }
       .dv-entry b {
-        display: block;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 800;
-      }
-      .dv-entry small {
-        display: block;
-        color: var(--muted);
-        font-size: 12px;
-      }
-      .dv-entry svg {
-        margin-inline-start: auto;
-        color: var(--primary);
       }
       #dev-page {
         position: fixed;
@@ -1632,7 +1622,7 @@
           padding-bottom: 20px;
         }
         .devcard {
-          margin-bottom: 170px;
+          margin-bottom: 110px;
         }
       }
       @media (max-width: 380px) {
@@ -2708,7 +2698,7 @@
           })
           .join('');
         $('about-dev').innerHTML =
-          `<a class="dv-entry" href="#dev" aria-label="عن المطوّر — ${esc(p.name)}"><img src="${esc(p.photo)}" alt="${esc(p.name)}"><span><b>عن المطوّر</b><small>تعرّف على اللي صمّم وبرمج المنيو ده</small></span>${chev}</a>`;
+          `<a class="dv-entry" href="#dev" aria-label="عن المطوّر — ${esc(p.name)}"><img src="${esc(p.photo)}" alt="${esc(p.name)}"><b>عن المطوّر</b></a>`;
         document.body.insertAdjacentHTML(
           'beforeend',
           `<div id="dev-page" hidden role="dialog" aria-modal="true" aria-label="عن المطوّر"><div class="dv"><div class="dv-bar"><span></span><h2>عن المطوّر</h2><a class="dv-back" href="#" id="dev-back" aria-label="رجوع للمنيو"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a></div><div class="dv-ph"><img src="${esc(p.photo)}" alt="${esc(p.name)}">${crown}<div class="dv-hand" aria-hidden="true">Good Vibes<br>&nbsp;Better Code</div></div><h1>${esc(p.name)}</h1><div class="dv-role">${esc(p.role)}</div><p class="dv-bio">${esc(p.bio)}</p><div class="dv-links">${tiles}</div><a class="dv-wa" ${wa ? `href="${esc(wa)}" target="_blank" rel="noopener noreferrer"` : 'aria-disabled="true" tabindex="-1"'}>${icon('whatsapp')}تواصل معي على واتساب</a><div class="dv-thx">✦ شكرًا لكل من يدعم رحلتي</div></div></div>`,
